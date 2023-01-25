@@ -11,7 +11,7 @@ resource "kubernetes_manifest" "prometheus_monitoring_prometheus_persistant" {
       "replicas"  = 1
       "resources" = {
         "requests" = {
-          "memory" = "300Mi"
+          "memory" = "600Mi"
         }
       }
       "nodeSelector" = {
