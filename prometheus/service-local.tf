@@ -10,7 +10,7 @@ resource "kubernetes_manifest" "service_monitoring_prometheus" {
       "ports" = [
         {
           "name" = "web"
-          "port" = var.port
+          "port" = 9090
           "targetPort" = "web"
         },
       ]
