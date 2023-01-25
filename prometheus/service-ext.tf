@@ -3,7 +3,7 @@ resource "kubernetes_manifest" "service_monitoring_prometheus_external" {
     "apiVersion" = "v1"
     "kind" = "Service"
     "metadata" = {
-      "name" = "prometheus-external"
+      "name" = "prometheus-external-${var.name}"
       "namespace" = var.namespace
     }
     "spec" = {
