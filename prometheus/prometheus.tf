@@ -12,7 +12,7 @@ resource "kubernetes_manifest" "prometheus_monitoring_prometheus_persistant" {
       "replicas"  = 1
       "resources" = {
         "requests" = {
-          "memory" = "600Mi"
+          "memory" = "300Mi"
         }
       }
       "nodeSelector" = {
@@ -30,13 +30,7 @@ resource "kubernetes_manifest" "prometheus_monitoring_prometheus_persistant" {
           {
             "key"      = "app"
             "operator" = "In"
-            "values"   = [
-              "kube-state-metrics",
-              "node-exporter",
-              "kubelet",
-              "traefik",
-              "pushgateway"
-            ]
+            "values"   = var.service_monitor_selector_apps
           }
         ]
       }
@@ -48,7 +42,7 @@ resource "kubernetes_manifest" "prometheus_monitoring_prometheus_persistant" {
             ]
             "resources" = {
               "requests" = {
-                "storage" = "20Gi"
+                "storage" = var.storage
               }
             }
             volumeName       = kubernetes_persistent_volume_v1.prometheus.metadata[0].name

@@ -3,27 +3,23 @@ variable "namespace" {
 }
 
 variable "storage" {
-  type    = string
-  default = "50Gi"
+  type = string
 }
 
 variable "nfs_path" {
-  type    = string
-  default = "/k3s/prometheus"
+  type = string
 }
 
 variable "nfs_server" {
-  type    = string
-  default = "192.168.178.51"
+  type = string
 }
 
 variable "name" {
   type = string
-  default = "prometheus"
 }
 
 variable "context_path" {
-  type = string
+  type    = string
   default = "/prometheus"
 }
 
@@ -32,6 +28,23 @@ variable "deployment_name" {
 }
 
 variable "retention" {
-  type = string
+  type    = string
   default = "30d"
+}
+
+
+variable "service_monitor_selector_apps" {
+  type    = list(string)
+  default = [
+    "kube-state-metrics",
+    "node-exporter",
+    "kubelet",
+    "traefik",
+    "pushgateway"
+  ]
+}
+
+variable "port" {
+  type = number
+  default = 9090
 }
