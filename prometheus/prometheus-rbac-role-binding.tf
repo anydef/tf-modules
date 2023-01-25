@@ -4,7 +4,9 @@ resource "kubernetes_manifest" "clusterrolebinding_prometheus" {
     "kind" = "ClusterRoleBinding"
     "metadata" = {
       "name" = var.name
-    }
+      "labels" = {
+        "app" = var.name
+      }    }
     "roleRef" = {
       "apiGroup" = "rbac.authorization.k8s.io"
       "kind" = "ClusterRole"

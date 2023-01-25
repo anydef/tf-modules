@@ -5,6 +5,9 @@ resource "kubernetes_manifest" "service_monitoring_prometheus_external" {
     "metadata" = {
       "name" = "external-${var.name}"
       "namespace" = var.namespace
+      "labels" = {
+        "app" = var.name
+      }
     }
     "spec" = {
 #      "loadBalancerIP" = "192.168.0.205"

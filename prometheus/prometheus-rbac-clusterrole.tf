@@ -4,6 +4,9 @@ resource "kubernetes_manifest" "clusterrole_monitoring_prometheus" {
     "kind" = "ClusterRole"
     "metadata" = {
       "name" = var.name
+      "labels" = {
+        "app" = var.name
+      }
     }
     "rules" = [
       {

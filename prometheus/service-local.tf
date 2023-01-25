@@ -5,6 +5,9 @@ resource "kubernetes_manifest" "service_monitoring_prometheus" {
     "metadata" = {
       "name" = var.name
       "namespace" = var.namespace
+      "labels" = {
+        "app" = var.name
+      }
     }
     "spec" = {
       "ports" = [

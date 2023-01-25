@@ -5,6 +5,9 @@ resource "kubernetes_manifest" "prometheus_monitoring_prometheus_persistant" {
     "metadata"   = {
       "name"      = var.deployment_name
       "namespace" = var.namespace
+      "labels" = {
+        "app" = var.deployment_name
+      }
     }
     "spec" = {
       "image" = "quay.io/prometheus/prometheus:v2.39.0"

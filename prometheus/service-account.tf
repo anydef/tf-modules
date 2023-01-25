@@ -5,6 +5,10 @@ resource "kubernetes_manifest" "serviceaccount_monitoring_prometheus" {
     "metadata" = {
       "name" = var.name
       "namespace" = var.namespace
+      "labels" = {
+        "app" = var.name
+      }
+
     }
   }
 }

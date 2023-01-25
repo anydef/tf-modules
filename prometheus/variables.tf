@@ -43,5 +43,4 @@ variable "service_monitor_selector_apps" {
 
 variable "port" {
   type = number
-  default = 9090
 }
