@@ -1,5 +1,4 @@
 resource "kubernetes_manifest" "prometheus_monitoring_prometheus_persistant" {
-  depends_on = [kubernetes_persistent_volume_v1.prometheus]
   manifest = {
     "apiVersion" = "monitoring.coreos.com/v1"
     "kind"       = "Prometheus"
