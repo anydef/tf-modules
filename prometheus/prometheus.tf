@@ -23,7 +23,7 @@ resource "kubernetes_manifest" "prometheus_monitoring_prometheus_persistant" {
         "runAsNonRoot" = true
         "runAsUser"    = 1000
       }
-      "serviceAccountName"     = "prometheus"
+      "serviceAccountName"     = var.name
       "serviceMonitorSelector" = {
         "matchExpressions" = [
           {
