@@ -45,7 +45,7 @@ resource "kubernetes_manifest" "prometheus_monitoring_prometheus_persistant" {
                 "storage" = var.storage
               }
             }
-            volumeName       = kubernetes_persistent_volume_v1.prometheus.metadata[0].name
+            volumeName       = var.volume_name
             storageClassName = "nfs"
           }
         }

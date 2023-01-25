@@ -6,11 +6,7 @@ variable "storage" {
   type = string
 }
 
-variable "nfs_path" {
-  type = string
-}
-
-variable "nfs_server" {
+variable "volume_name" {
   type = string
 }
 
@@ -43,6 +39,7 @@ variable "service_monitor_selector_apps" {
     "pushgateway"
   ]
 }
+
 
 variable "port" {
   type = number
