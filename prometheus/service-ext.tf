@@ -16,7 +16,7 @@ resource "kubernetes_manifest" "service_monitoring_prometheus_external" {
           "name" = "web"
           "port" = var.port
           "protocol" = "TCP"
-          "targetPort" = var.port
+          "targetPort" = 9090
         },
       ]
       "selector" = {
