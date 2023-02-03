@@ -44,6 +44,10 @@ resource "kubernetes_deployment_v1" "grafana" {
             name       = "grafana-storage"
           }
         }
+        image_pull_secrets {
+          name = var.github_container_registry_secret_name
+        }
+
         volume {
           name = "grafana-storage"
           persistent_volume_claim {
