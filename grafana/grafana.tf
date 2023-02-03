@@ -36,7 +36,7 @@ resource "kubernetes_deployment_v1" "grafana" {
               path = "/${var.context_path}/api/health"
               port = 3000
             }
-            initial_delay_seconds = 6
+            initial_delay_seconds = 5
             period_seconds        = 5
           }
           volume_mount {
