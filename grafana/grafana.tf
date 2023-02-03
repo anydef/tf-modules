@@ -36,7 +36,7 @@ resource "kubernetes_deployment_v1" "grafana" {
               path = "/${var.context_path}/api/health"
               port = 3000
             }
-            initial_delay_seconds = 5
+            initial_delay_seconds = 6
             period_seconds        = 5
           }
           volume_mount {
@@ -44,6 +44,7 @@ resource "kubernetes_deployment_v1" "grafana" {
             name       = "grafana-storage"
           }
         }
+
         image_pull_secrets {
           name = var.github_container_registry_secret_name
         }
